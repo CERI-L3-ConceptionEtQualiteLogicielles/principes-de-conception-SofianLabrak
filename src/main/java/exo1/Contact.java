@@ -20,8 +20,15 @@ public class Contact {
         return numero;
     }
 
-    public String getInfoContact() {
-        return "Nom: " + getNom() + ", Numéro: " + getNumero();
+    public String getInfoContact(String format) {
+        switch (format.toLowerCase()) {
+            case "json":
+                return String.format("{\"nom\": \"%s\", \"numero\": \"%s\"}", nom, numero);
+            case "xml":
+                return String.format("<contact><nom>%s</nom><numero>%s</numero></contact>", nom, numero);
+            default:
+                return String.format("%s %s", nom, numero);
+        }
     }
 
     public void envoyerSMS(String message) {
