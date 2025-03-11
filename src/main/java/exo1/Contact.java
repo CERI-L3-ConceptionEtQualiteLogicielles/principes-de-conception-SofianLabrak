@@ -4,21 +4,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contact {
-    private String nom;
-    private String numero;
+    // Obligatoire
+    private final String nom;
+    private final String numero;
+    // Non Obligatoire
+    private final String prenom;
+    private final String civilite;
+    private final String adresse;
+    private final String mail;
+    private final String dateNaissance;
+    private final String lieuTravail;
+    private final String ville;
 
-    public Contact(String nom, String numero) {
-        this.nom = nom;
-        this.numero = numero;
+    Contact(ContactBuilder builder) {
+        this.nom = builder.getNom();
+        this.numero = builder.getNumero();
+        this.prenom = builder.getPrenom();
+        this.civilite = builder.getCivilite();
+        this.adresse = builder.getAdressePostale();
+        this.mail = builder.getEmail();
+        this.dateNaissance = builder.getDateAnniversaire();
+        this.lieuTravail = builder.getLieuTravail();
+        this.ville = builder.getVille();
     }
 
     public String getNom() {
         return nom;
     }
-
     public String getNumero() {
         return numero;
     }
+
+    public String getPrenom() {return prenom;}
+    public String getCivilite() {return civilite;}
+    public String getAdresse() {return adresse;}
+    public String getMail() {return mail;}
+    public String getDateNaissance() {return dateNaissance;}
+    public String getLieuTravail() {return lieuTravail;}
+    public String getVille() {return ville;}
 
     public String getInfoContact(String format) {
         switch (format.toLowerCase()) {
@@ -41,7 +64,17 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Nom: " + getNom() + ", Numéro: " + getNumero();
+        return "Contact{" +
+                "nom='" + nom + '\'' +
+                ", numero='" + numero + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", civilite='" + civilite + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", mail='" + mail + '\'' +
+                ", dateNaissance='" + dateNaissance + '\'' +
+                ", lieuTravail='" + lieuTravail + '\'' +
+                ", ville='" + ville + '\'' +
+                '}';
     }
 }
 
