@@ -16,21 +16,81 @@ public class Contact {
     private final String lieuTravail;
     private final String ville;
 
-    Contact(ContactBuilder builder) {
-        this.nom = builder.getNom();
-        this.numero = builder.getNumero();
-        this.prenom = builder.getPrenom();
-        this.civilite = builder.getCivilite();
-        this.adresse = builder.getAdressePostale();
-        this.mail = builder.getEmail();
-        this.dateNaissance = builder.getDateAnniversaire();
-        this.lieuTravail = builder.getLieuTravail();
-        this.ville = builder.getVille();
+    private Contact(Builder builder) {
+        this.nom = builder.nom;
+        this.numero = builder.numero;
+        this.prenom = builder.prenom;
+        this.civilite = builder.civilite;
+        this.adresse = builder.adresse;
+        this.mail = builder.mail;
+        this.dateNaissance = builder.dateNaissance;
+        this.lieuTravail = builder.lieuTravail;
+        this.ville = builder.ville;
+    }
+
+    // Classe Builder statique interne
+    public static class Builder {
+        // Obligatoire
+        private final String nom;
+        private final String numero;
+        // Non Obligatoire
+        private String prenom = "";
+        private String civilite = "";
+        private String adresse = "";
+        private String mail = "";
+        private String dateNaissance = "";
+        private String lieuTravail = "";
+        private String ville = "";
+
+        public Builder(String nom, String numero) {
+            this.nom = nom;
+            this.numero = numero;
+        }
+
+        public Builder prenom(String prenom) {
+            this.prenom = prenom;
+            return this;
+        }
+
+        public Builder civilite(String civilite) {
+            this.civilite = civilite;
+            return this;
+        }
+
+        public Builder adresse(String adresse) {
+            this.adresse = adresse;
+            return this;
+        }
+
+        public Builder mail(String mail) {
+            this.mail = mail;
+            return this;
+        }
+
+        public Builder dateNaissance(String dateNaissance) {
+            this.dateNaissance = dateNaissance;
+            return this;
+        }
+
+        public Builder lieuTravail(String lieuTravail) {
+            this.lieuTravail = lieuTravail;
+            return this;
+        }
+
+        public Builder ville(String ville) {
+            this.ville = ville;
+            return this;
+        }
+
+        public Contact build() {
+            return new Contact(this);
+        }
     }
 
     public String getNom() {
         return nom;
     }
+
     public String getNumero() {
         return numero;
     }
@@ -48,7 +108,7 @@ public class Contact {
             case "json":
                 return String.format("{\"nom\": \"%s\", \"numero\": \"%s\", \"prenom\": \"%s\", \"civilite\": \"%s\", \"adresse\": \"%s\", \"mail\": \"%s\", \"dateNaissance\": \"%s\", \"lieuTravail\": \"%s\", \"ville\": \"%s\"}", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
             case "xml":
-                return String.format("<contact><nom>%s</nom><numero>%s</numero><prenom>%s</prenom><civilite>%s</civilite><adresse>%s</adresse><mail>%s</mail><dateNaissane>%s</dateNaissance><lieuTravail>%s</lieuTravail><ville>%s</ville></contact>", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
+                return String.format("%s%s%s%s%s%s%s%s%s", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
             default:
                 return String.format("%s %s %s %s %s %s %s %s %s", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
         }
@@ -77,4 +137,3 @@ public class Contact {
                 '}';
     }
 }
-

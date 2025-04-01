@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         GestionnaireDeContacts gestionnaire = GestionnaireDeContacts.getInstance();
 
-        Contact contact1 = new ContactBuilder("Labrak", "0666666666").addPrenom("Sofian").addMail("sofian.labrak@gmail.com").build();
+        Contact contact1 = new Contact.Builder("Labrak", "0666666666").prenom("Sofian").mail("sofian.labrak@gmail.com").build();
 
-        Contact contact2 = new ContactBuilder("Eric", "0649876528").addPrenom("Dupont Moretti").addVille("Paris").addCivilite("Homme").build();
+        Contact contact2 = new Contact.Builder("Eric", "0649876528").prenom("Dupont Moretti").ville("Paris").civilite("Homme").build();
 
         Annuaire annuaire = gestionnaire.getAnnuaire();
         annuaire.ajouteContact(contact1);
