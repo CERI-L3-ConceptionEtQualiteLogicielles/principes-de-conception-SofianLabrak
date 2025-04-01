@@ -23,8 +23,4 @@ public class Annuaire implements ContactService {
             System.out.println(contact);
         }
     }
-
-    public void sauvegardeEnDB(){
-        // Logique pour sauvegarder les contacts dans une base de données
-    }
 }
