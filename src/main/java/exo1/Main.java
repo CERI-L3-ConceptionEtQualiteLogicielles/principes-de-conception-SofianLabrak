@@ -21,5 +21,6 @@ public class Main {
 
         System.out.println("Affichage en JSON du contact : " + contact2.getInfoContact("json"));
         System.out.println("Affichage en XML du contact : " + contact2.getInfoContact("xml"));
+        System.out.println("Affichage en DEFAULT du contact : " + contact2.getInfoContact("default"));
     }
 }
