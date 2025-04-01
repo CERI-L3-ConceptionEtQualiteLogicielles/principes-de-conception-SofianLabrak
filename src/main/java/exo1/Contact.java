@@ -16,7 +16,7 @@ public class Contact {
     private final String lieuTravail;
     private final String ville;
 
-    private Contact(Builder builder) {
+    private Contact(ContactBuilder builder) {
         this.nom = builder.nom;
         this.numero = builder.numero;
         this.prenom = builder.prenom;
@@ -28,8 +28,7 @@ public class Contact {
         this.ville = builder.ville;
     }
 
-    // Classe Builder statique interne
-    public static class Builder {
+    public static class ContactBuilder {
         // Obligatoire
         private final String nom;
         private final String numero;
@@ -42,42 +41,42 @@ public class Contact {
         private String lieuTravail = "";
         private String ville = "";
 
-        public Builder(String nom, String numero) {
+        public ContactBuilder(String nom, String numero) {
             this.nom = nom;
             this.numero = numero;
         }
 
-        public Builder prenom(String prenom) {
+        public ContactBuilder addPrenom(String prenom) {
             this.prenom = prenom;
             return this;
         }
 
-        public Builder civilite(String civilite) {
+        public ContactBuilder addCivilite(String civilite) {
             this.civilite = civilite;
             return this;
         }
 
-        public Builder adresse(String adresse) {
+        public ContactBuilder addAdresse(String adresse) {
             this.adresse = adresse;
             return this;
         }
 
-        public Builder mail(String mail) {
+        public ContactBuilder addMail(String mail) {
             this.mail = mail;
             return this;
         }
 
-        public Builder dateNaissance(String dateNaissance) {
+        public ContactBuilder addDateNaissance(String dateNaissance) {
             this.dateNaissance = dateNaissance;
             return this;
         }
 
-        public Builder lieuTravail(String lieuTravail) {
+        public ContactBuilder addlieuTravail(String lieuTravail) {
             this.lieuTravail = lieuTravail;
             return this;
         }
 
-        public Builder ville(String ville) {
+        public ContactBuilder addVille(String ville) {
             this.ville = ville;
             return this;
         }
