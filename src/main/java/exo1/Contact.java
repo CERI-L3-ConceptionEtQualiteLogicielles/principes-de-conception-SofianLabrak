@@ -108,7 +108,7 @@ public class Contact {
             case "json":
                 return String.format("{\"nom\": \"%s\", \"numero\": \"%s\", \"prenom\": \"%s\", \"civilite\": \"%s\", \"adresse\": \"%s\", \"mail\": \"%s\", \"dateNaissance\": \"%s\", \"lieuTravail\": \"%s\", \"ville\": \"%s\"}", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
             case "xml":
-                return String.format("%s%s%s%s%s%s%s%s%s", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
+                String.format("<contact><nom>%s</nom><numero>%s</numero><prenom>%s</prenom><civilite>%s</civilite><adresse>%s</adresse><mail>%s</mail><dateNaissane>%s</dateNaissance><lieuTravail>%s</lieuTravail><ville>%s</ville></contact>", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
             default:
                 return String.format("%s %s %s %s %s %s %s %s %s", nom, numero, prenom, civilite, adresse, mail, dateNaissance, lieuTravail, ville);
         }
